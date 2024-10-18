@@ -35,6 +35,10 @@
       "type": "runtime"
     },
     {
+      "name": "gray-matter",
+      "type": "runtime"
+    },
+    {
       "name": "next",
       "type": "runtime"
     },
@@ -43,11 +47,23 @@
       "type": "runtime"
     },
     {
+      "name": "preline",
+      "type": "runtime"
+    },
+    {
       "name": "react",
       "type": "runtime"
     },
     {
       "name": "react-dom",
+      "type": "runtime"
+    },
+    {
+      "name": "remark",
+      "type": "runtime"
+    },
+    {
+      "name": "remark-html",
       "type": "runtime"
     },
     {

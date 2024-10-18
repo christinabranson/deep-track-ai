@@ -40,7 +40,5 @@ jspm_packages/
 !/pages/
 /lib
 /dist/
-!/tailwind.config.json
-!/postcss.config.json
 /.next/
 !/.projenrc.ts
