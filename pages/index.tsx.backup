@@ -1,0 +1,91 @@
+import Link from "next/link";
+import { getSortedPostsData } from "../lib/posts";
+
+export default function Home({ allPostsData }) {
+  const getImageUrl = (image) => {
+    if (image !== undefined) {
+      return image;
+    }
+
+    return "/img/music.jpg";
+  };
+
+  return (
+    <div className="w-full flex container mx-auto px-2 lg:grid-cols-2 gap-4">
+      <div className="sidebar">
+        <img src="/img/logo2.png" width={400} />
+        <h1 className="text-4xl dark:text-white hidden">Deep Track API</h1>
+        <h2 className="text-3xl dark:text-white text-decoration-underline">Discovering new music with generative AI</h2>
+        <p>Lorem upsum dolor</p>
+      </div>
+      <div className="w-full" style={{marginTop:'20px'}}>
+        <div className="grid lg:grid-cols-1 gap-6">
+          {allPostsData.map(({ id, title, tagline, date, image }) => (
+            <div
+              id={id}
+              key={id}
+              className="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-neutral-900 dark:border-neutral-700 dark:shadow-neutral-700/70"
+            >
+              <Link
+                className="group relative block rounded-xl focus:outline-none"
+                href={`/posts/${id}`}
+              >
+                <div className="shrink-0 relative rounded-xl overflow-hidden w-full h-[350px] before:absolute before:inset-x-0 before:z-[1] before:size-full before:bg-gradient-to-t before:from-gray-900/70">
+                  <img
+                    className="size-full absolute top-0 start-0 object-cover"
+                    src={getImageUrl(image)}
+                    alt={title}
+                  />
+                </div>
+
+                <div className="absolute top-0 inset-x-0 z-10">
+                  <div className="p-4 flex flex-col h-full sm:gitp-6">
+                    <div className="flex items-center">
+                      {/* <div className="shrink-0">
+                <img className="size-[46px] border-2 border-white rounded-full" src="https://images.unsplash.com/photo-1669837401587-f9a4cfe3126e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80" alt="Avatar" />
+              </div> */}
+                      <div className="ms-2.5 sm:ms-4">
+                        {/* <h4 className="font-semibold text-white">
+                  Gloria
+                </h4> */}
+                        <p className="text-xs text-white/80">{date}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="absolute bottom-0 inset-x-0 z-10">
+                  <div className="flex flex-col h-full p-4 sm:p-6">
+                    <h3 className="text-lg sm:text-3xl font-semibold text-white group-hover:text-white/80 group-focus:text-white/80">
+                      {title}
+                    </h3>
+                    <p className="mt-2 text-white/80">{tagline}</p>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export async function getStaticProps() {
+  const allPostsData = getSortedPostsData();
+  return {
+    props: {
+      allPostsData,
+    },
+  };
+}
+
+{
+  /* <li key={id}>
+<Link href={`/posts/${id}`}>
+  {title}
+</Link>
+<br />
+<small>{date}</small>
+</li> */
+}

@@ -13,9 +13,26 @@ module.exports = {
     './node_modules/preline/preline.js',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'blue': '#447f7f',
+      },
+      fontFamily: {
+        sans: ['Rubik', 'sans-serif'],
+        serif: ['Rubik', 'serif'],
+      },
+      typography: (theme) => ({
+        dark: {
+          css: {
+            color: 'white',
+          },
+        },
+      }),
+    },
   },
   plugins: [
     require('preline/plugin'),
   ],
+  darkMode: 'class',
 }
+

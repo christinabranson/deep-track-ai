@@ -1,6 +1,6 @@
-import { getAllPostIds, getPostData } from '../../lib/posts';
-import { remark } from 'remark';
-import html from 'remark-html';
+import { remark } from "remark";
+import html from "remark-html";
+import { getAllPostIds, getPostData } from "../../lib/posts";
 
 export default function Post({ postData }) {
   return (
@@ -22,9 +22,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const postData = getPostData(params.id);
 
-  const processedContent = await remark()
-    .use(html)
-    .process(postData.content);
+  const processedContent = await remark().use(html).process(postData.content);
   const contentHtml = processedContent.toString();
 
   return {

@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base{
+    body {
+        @apply dark:bg-gray-800 bg-white
+    }
+}
+
+a {
+    color: #447f7f;
+}
+
+.text-blue-custom {
+    color: #447f7f;
+}
+
+
+
+/* styles/sidebar.module.css */
+/* .sidebar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow-y: auto;
+  } */
+
+  footer {
+      bottom:0;
+      margin-top:auto;
+  }

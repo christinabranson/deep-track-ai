@@ -8,9 +8,9 @@
     "inlineSourceMap": true,
     "inlineSources": true,
     "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
+      "es2018",
+      "DOM",
+      "DOM.Iterable"
     ],
     "module": "commonjs",
     "noEmitOnError": false,
@@ -25,10 +25,10 @@
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
     "stripInternal": true,
-    "target": "es5",
+    "target": "ES2018",
     "moduleResolution": "bundler",
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "allowJs": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
