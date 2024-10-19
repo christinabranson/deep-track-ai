@@ -1,32 +1,12 @@
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { getSortedPostsData, getAllTags } from "../../lib/posts";
+import { getAllTags, getPostsByTag } from "../../lib/posts";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PostListing from "@/components/PostListing";
-export default function SearchResults({ allPostsData, allTags }) {
-  const router = useRouter();
-  const { query } = router.query;
-  const [filteredPosts, setFilteredPosts] = useState([]);
 
-  // Search posts by title, tags, and body
-  function searchPosts(allPostsData, query) {
-    return allPostsData.filter((post) => {
-      const content =
-        `${post.title} ${post.tags?.join(" ")} ${post.content}`.toLowerCase();
-      return content.includes(query.toLowerCase());
-    });
-  }
-
-  useEffect(() => {
-    if (query) {
-      // Use the client-side search function to filter posts based on the query
-      const searchResults = searchPosts(allPostsData, query);
-      setFilteredPosts(searchResults);
-    }
-  }, [query, allPostsData]);
-
+export default function Tag({ tag, posts, allTags }) {
+  console.log({ posts });
+  console.log({ allTags });
   return (
     <div className="max-w-[50rem] mx-auto px-4 sm:px-6 lg:px-8">
       <Header />
@@ -56,12 +36,34 @@ export default function SearchResults({ allPostsData, allTags }) {
             ></path>
           </svg>
         </li>
-
+        <li className="inline-flex items-center">
+          <Link
+            className="flex items-center text-sm text-gray-500 hover:text-blue-600 focus:outline-none focus:text-blue-600 dark:text-neutral-500 dark:hover:text-blue-500 dark:focus:text-blue-500"
+            href="/tags/all"
+          >
+            Tags
+            <svg
+              className="shrink-0 size-5 text-gray-400 dark:text-neutral-600 mx-2"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M6 13L10 3"
+                stroke="currentColor"
+                stroke-linecap="round"
+              ></path>
+            </svg>
+          </Link>
+        </li>
         <li
           className="inline-flex items-center text-sm font-semibold text-gray-800 truncate dark:text-neutral-200"
           aria-current="page"
         >
-          Search: {query}
+          {tag}
         </li>
       </ol>
       {/* /Breadcrumbs */}
@@ -70,18 +72,10 @@ export default function SearchResults({ allPostsData, allTags }) {
         className="w-full"
         style={{ marginTop: "50px", marginBottom: "50px" }}
       >
-        <h1>Search Results</h1>
         <div className="grid lg:grid-cols-2 lg:gap-y-16 gap-8">
-          {/* Display filtered posts */}
-          {filteredPosts.length > 0 ? (
-            <>
-              {filteredPosts.map((post) => (
-                <PostListing post={post} />
-              ))}
-            </>
-          ) : (
-            <p>No posts found for the search term "{query}".</p>
-          )}
+          {posts.map((post) => (
+            <PostListing post={post} />
+          ))}
         </div>
       </div>
 
@@ -93,13 +87,24 @@ export default function SearchResults({ allPostsData, allTags }) {
   );
 }
 
-// Fetch posts statically for client-side search functionality
-export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
+export async function getStaticPaths() {
+  const allTags = getAllTags();
+  const paths = allTags.map((tag) => ({
+    params: { tag },
+  }));
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const posts = getPostsByTag(params.tag);
   const allTags = getAllTags();
   return {
     props: {
-      allPostsData,
+      tag: params.tag,
+      posts,
       allTags,
     },
   };

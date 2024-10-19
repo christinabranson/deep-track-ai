@@ -86,6 +86,10 @@
       "type": "runtime"
     },
     {
+      "name": "react-spotify-embed",
+      "type": "runtime"
+    },
+    {
       "name": "remark",
       "type": "runtime"
     },

@@ -7,13 +7,12 @@ import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PostListing from "@/components/PostListing";
+import FooterMinimal from "@/components/FooterMinimal";
 
 export default function Home({ allPostsData, allTags }) {
   return (
     <div className="max-w-[50rem] mx-auto px-4 sm:px-6 lg:px-8">
       <Header />
-
-      <hr className="border-4"></hr>
 
       <div
         className="w-full"
@@ -26,10 +25,11 @@ export default function Home({ allPostsData, allTags }) {
         </div>
       </div>
 
-      <hr className="border-4"></hr>
+      <hr className="border-1 border-gray-200 dark:border-neutral-700"></hr>
 
       {/* FOOTER */}
-      <Footer allTags={allTags} />
+      {/* <Footer allTags={allTags} /> */}
+      <FooterMinimal allTags={allTags} />
     </div>
   );
 }
