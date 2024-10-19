@@ -1,29 +1,30 @@
 // import { useState } from "react";
 import Link from "next/link";
-import { getSortedPostsData, getAllTags } from "../lib/posts";
+import { getAllTags } from "../../lib/posts";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PostListing from "@/components/PostListing";
 
-export default function Home({ allPostsData, allTags }) {
+export default function AllTagsPage({ allTags }) {
   return (
     <div className="max-w-[50rem] mx-auto px-4 sm:px-6 lg:px-8">
       <Header />
 
       <hr className="border-4"></hr>
 
-      <div
-        className="w-full"
-        style={{ marginTop: "50px", marginBottom: "50px" }}
-      >
-        <div className="grid lg:grid-cols-2 lg:gap-y-16 gap-8">
-          {allPostsData.map((post) => (
-            <PostListing post={post} />
+      <div>
+        <h4 className="font-semibold ">Popular tags:</h4>
+        <p>
+          {allTags.map((tag) => (
+            <span key={tag}>
+              <Link href={`/tags/${tag}`}>{tag}</Link>
+              {"   "}
+            </span>
           ))}
-        </div>
+        </p>
       </div>
 
       <hr className="border-4"></hr>
@@ -35,11 +36,9 @@ export default function Home({ allPostsData, allTags }) {
 }
 
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
   const allTags = getAllTags();
   return {
     props: {
-      allPostsData,
       allTags,
     },
   };

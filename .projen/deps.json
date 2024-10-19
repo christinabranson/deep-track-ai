@@ -82,6 +82,10 @@
       "type": "runtime"
     },
     {
+      "name": "react-markdown",
+      "type": "runtime"
+    },
+    {
       "name": "remark",
       "type": "runtime"
     },
