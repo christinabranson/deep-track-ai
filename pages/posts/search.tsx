@@ -1,10 +1,10 @@
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { getSortedPostsData, getAllTags } from "../../lib/posts";
-import Link from "next/link";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import PostListing from "@/components/PostListing";
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import { getSortedPostsData, getAllTags } from '../../lib/posts';
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
+import PostListingSingle from '@/components/PostListingSingle';
 export default function SearchResults({ allPostsData, allTags }) {
   const router = useRouter();
   const { query } = router.query;
@@ -14,7 +14,7 @@ export default function SearchResults({ allPostsData, allTags }) {
   function searchPosts(allPostsData, query) {
     return allPostsData.filter((post) => {
       const content =
-        `${post.title} ${post.tags?.join(" ")} ${post.content}`.toLowerCase();
+        `${post.title} ${post.tags?.join(' ')} ${post.content}`.toLowerCase();
       return content.includes(query.toLowerCase());
     });
   }
@@ -28,7 +28,7 @@ export default function SearchResults({ allPostsData, allTags }) {
   }, [query, allPostsData]);
 
   return (
-    <div className="max-w-[50rem] mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="max-w-[64rem] mx-auto px-4 sm:px-6 lg:px-8">
       <Header />
 
       {/* Breadcrumbs */}
@@ -66,17 +66,13 @@ export default function SearchResults({ allPostsData, allTags }) {
       </ol>
       {/* /Breadcrumbs */}
 
-      <div
-        className="w-full"
-        style={{ marginTop: "50px", marginBottom: "50px" }}
-      >
-        <h1>Search Results</h1>
+      <div className="w-full py-3">
         <div className="grid lg:grid-cols-2 lg:gap-y-16 gap-8">
           {/* Display filtered posts */}
           {filteredPosts.length > 0 ? (
             <>
               {filteredPosts.map((post) => (
-                <PostListing post={post} />
+                <PostListingSingle post={post} />
               ))}
             </>
           ) : (

@@ -1,12 +1,26 @@
-// import { useState } from "react";
 import Link from 'next/link';
-import { getAllTagsWithCounts } from '../../lib/posts';
+import { getAllTags } from '../lib/posts';
 
+import CustomMarkdown from '@/components/CustomMarkdown';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 
+
 export default function AllTagsPage({ allTags }) {
-  console.log({ allTags });
+  const markdownContent = `
+
+-----
+
+## Hi, I'm Christina!
+
+...
+
+### Why am I creating this blog?
+
+...
+
+
+`;
   return (
     <div className="max-w-[64rem] mx-auto px-4 sm:px-6 lg:px-8">
       <Header />
@@ -41,30 +55,17 @@ export default function AllTagsPage({ allTags }) {
           className="inline-flex items-center text-sm font-semibold text-gray-800 truncate dark:text-neutral-200"
           aria-current="page"
         >
-          Tags
+          About
         </li>
       </ol>
       {/* /Breadcrumbs */}
 
-      <div className="w-full py-3">
-        <h2 className="text-3xl dark:text-white font-semibold py-2">
-          Popular tags:
+      <div className="w-full py-5">
+        <h2 className="text-3xl dark:text-white font-bold py-2">
+          About this blog
         </h2>
-        <ul className="max-w flex flex-col py-2">
-          {allTags.map(([tag, count]) => (
-            <li
-              key={tag}
-              className="inline-flex items-center gap-x-2 py-3 px-4 text-sm font-medium bg-white border border-gray  text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg dark:bg-neutral-900 dark:border-neutral-700 dark:text-white"
-            >
-              <div className="flex justify-between w-full">
-                <Link href={`/tags/${tag}`}>{tag}</Link>
-                <span className="inline-flex items-center py-1 px-2 rounded-full text-xs font-medium bg-blue text-white">
-                  {count}
-                </span>
-              </div>
-            </li>
-          ))}
-        </ul>
+
+        <CustomMarkdown content={markdownContent} />
       </div>
 
       <hr className="border-1 border-gray-200 dark:border-neutral-700"></hr>
@@ -76,7 +77,7 @@ export default function AllTagsPage({ allTags }) {
 }
 
 export async function getStaticProps() {
-  const allTags = getAllTagsWithCounts();
+  const allTags = getAllTags();
   return {
     props: {
       allTags,

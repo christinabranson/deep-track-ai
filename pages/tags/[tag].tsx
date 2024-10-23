@@ -1,14 +1,12 @@
-import { getAllTags, getPostsByTag } from "../../lib/posts";
-import Link from "next/link";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import PostListing from "@/components/PostListing";
+import Link from 'next/link';
+import { getAllTags, getPostsByTag } from '../../lib/posts';
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
+import PostListingPaginated from '@/components/PostListingPaginated';
 
 export default function Tag({ tag, posts, allTags }) {
-  console.log({ posts });
-  console.log({ allTags });
   return (
-    <div className="max-w-[50rem] mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="max-w-[64rem] mx-auto px-4 sm:px-6 lg:px-8">
       <Header />
 
       {/* Breadcrumbs */}
@@ -68,14 +66,9 @@ export default function Tag({ tag, posts, allTags }) {
       </ol>
       {/* /Breadcrumbs */}
 
-      <div
-        className="w-full"
-        style={{ marginTop: "50px", marginBottom: "50px" }}
-      >
-        <div className="grid lg:grid-cols-2 lg:gap-y-16 gap-8">
-          {posts.map((post) => (
-            <PostListing post={post} />
-          ))}
+      <div className="w-full py-3">
+        <div className="grid lg:grid-cols-1 lg:gap-y-16 gap-8">
+          <PostListingPaginated posts={posts} />
         </div>
       </div>
 

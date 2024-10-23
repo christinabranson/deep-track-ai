@@ -8,6 +8,10 @@
     }
 }
 
+html,body {
+    min-height: 100vh;
+}
+
 a {
     color: #447f7f;
 }
@@ -17,17 +21,10 @@ a {
 }
 
 
-
-/* styles/sidebar.module.css */
-/* .sidebar {
-    position: sticky;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    overflow-y: auto;
-  } */
-
   footer {
       bottom:0;
-      margin-top:auto;
+  }
+
+  .custom-italics {
+      font-style: italic;
   }

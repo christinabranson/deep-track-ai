@@ -1,14 +1,12 @@
-// `pages/_app.js`
+import { Rubik } from 'next/font/google';
 
-import { Rubik } from "next/font/google";
-
-import "../styles/global.css";
+import '../styles/global.css';
 
 const rubic_font = Rubik({
-  weight: ["400", "700"],
-  style: ["normal", "italic"],
-  subsets: ["latin"],
-  display: "swap",
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  display: 'swap',
 });
 
 export default function App({ Component, pageProps }) {

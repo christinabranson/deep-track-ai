@@ -1,20 +1,22 @@
 import Link from "next/link";
-import { useRouter } from 'next/router';
-import { useState } from 'react';
-export default function Footer({ allTags }) {
+import { useRouter } from "next/router";
+import { useState } from "react";
 
-  const [searchQuery, setSearchQuery] = useState('');
+import FooterMinimal from "./FooterMinimal";
+
+export default function Footer({ allTags }) {
+  return <FooterMinimal allTags={allTags} />;
+  const [searchQuery, setSearchQuery] = useState("");
   const router = useRouter();
 
-    // Handle form submission to the search page
-    const handleSearchSubmit = (e) => {
-      e.preventDefault();
-      if (searchQuery.trim()) {
-        // Redirect to the search results page with the query as a query parameter
-        router.push(`/posts/search?query=${encodeURIComponent(searchQuery)}`);
-      }
-    };
-  
+  // Handle form submission to the search page
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      // Redirect to the search results page with the query as a query parameter
+      router.push(`/posts/search?query=${encodeURIComponent(searchQuery)}`);
+    }
+  };
 
   return (
     <footer className="mt-auto w-full ">

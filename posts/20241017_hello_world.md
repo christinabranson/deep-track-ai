@@ -1,25 +1,43 @@
 ---
-title: "Hello World w/ Playlist"
+title: "Hello, World!"
 date: "2024-10-17"
-tagline: "Just a short tagline..."
+tagline: "It's 2024 and clearly we need another blog about GenAI."
 image: /img/posts/tape.jpg
-tags: ["meta", "hello", "world"]
-playlist: "https://open.spotify.com/embed/playlist/7ouvLHlg7TRYns67NueSzK?utm_source=generator"
+tags: ["meta" , "first post"]
+# playlist: "https://open.spotify.com/embed/playlist/7ouvLHlg7TRYns67NueSzK?utm_source=generator"
 ---
 
-# this is an h1 tag
+---- 
 
-This is my first blog post written in **Markdown**!
+## aka, It's 2024 and clearly we need another blog about GenAI.
 
-## this is an h2 tag
+----
 
-I can do some cool things like:
+### aka, The first post.
+
+-----
+
+Yes, it's 2024. Yes, everything is AI now. It's going to take our jobs. It's going to murder us all. You can't trust your eyes or ears because now everything can be fake.
+
+It's scary, sure.
+
+But, its a pretty damn cool tool, and I think I've found a good use case for it. **Music discovery**
 
 
-### this is an h3 tag
+-----
 
-- bullet point 1
-- bullet point 2
-- bullet point 3
+
+I'm going to be asking questions like:
+
+> What are some relatively unknown collaborators of **<insert-artist-here>**?
+
+or
+
+> What are some of the lesser known writing or musical contribitions that **<insert-artist-here>** has made on other projects?
+
+or
+
+> If the move **<insert-movie>** were made in 2024, what would be a more modern soundtrack that kept the same vibes?
+
 
 
