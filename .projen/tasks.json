@@ -85,6 +85,30 @@
         }
       ]
     },
+    "deploy:build": {
+      "name": "deploy:build",
+      "steps": [
+        {
+          "exec": "next build"
+        }
+      ]
+    },
+    "deploy:export": {
+      "name": "deploy:export",
+      "steps": [
+        {
+          "exec": "next export"
+        }
+      ]
+    },
+    "deploy:gh": {
+      "name": "deploy:gh",
+      "steps": [
+        {
+          "exec": "gh-pages -d out"
+        }
+      ]
+    },
     "dev": {
       "name": "dev",
       "description": "Starts the Next.js application in development mode",
@@ -194,13 +218,13 @@
       },
       "steps": [
         {
-          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@types/react,@types/react-dom,eslint-import-resolver-typescript,eslint-plugin-import,projen,ts-node,typescript,autoprefixer,gray-matter,next,postcss,preline,react,react-dom,react-markdown,react-spotify-embed,remark,remark-html,tailwindcss"
+          "exec": "npx npm-check-updates@16 --upgrade --target=minor --peer --dep=dev,peer,prod,optional --filter=@types/react,@types/react-dom,eslint-import-resolver-typescript,eslint-plugin-import,gh-pages,projen,ts-node,typescript,autoprefixer,gray-matter,next,postcss,preline,react,react-dom,react-markdown,remark,remark-html,tailwindcss"
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @types/node @types/react @types/react-dom @typescript-eslint/eslint-plugin @typescript-eslint/parser constructs eslint-import-resolver-typescript eslint-plugin-import eslint projen ts-node typescript autoprefixer gray-matter next postcss preline react react-dom react-markdown react-spotify-embed remark remark-html tailwindcss"
+          "exec": "yarn upgrade @types/node @types/react @types/react-dom @typescript-eslint/eslint-plugin @typescript-eslint/parser constructs eslint-import-resolver-typescript eslint-plugin-import eslint gh-pages projen ts-node typescript autoprefixer gray-matter next postcss preline react react-dom react-markdown remark remark-html tailwindcss"
         },
         {
           "exec": "npx projen"

@@ -43,7 +43,9 @@
       "@/*": [
         "./*"
       ]
-    }
+    },
+    "rootDir": ".",
+    "outDir": "./out"
   },
   "include": [
     "pages/**/*.ts",

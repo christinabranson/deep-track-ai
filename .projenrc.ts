@@ -16,7 +16,7 @@ const project = new web.NextJsTypeScriptProject({
     'react-markdown',
   ] /* Runtime dependencies of this module. */,
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  // devDeps: [],             /* Build dependencies for this module. */
+  devDeps: ['gh-pages'],             /* Build dependencies for this module. */
   packageName: 'deep-track-ai' /* The "name" in package.json. */,
   tailwind: false /* Setup Tailwind CSS as a PostCSS plugin. */,
   eslint: true,
@@ -43,13 +43,26 @@ const project = new web.NextJsTypeScriptProject({
       strictNullChecks: true,
       strictPropertyInitialization: true,
       stripInternal: true,
-      target: 'ES2018',
+    target: 'ES2018',
+      rootDir: ".",
+      outDir: "./out",
     },
   },
 });
 
 project.addTask('clean-npm', {
   exec: 'npm cache clean --force',
+});
+
+project.addTask('deploy:build', {
+  exec: 'next build',
+});
+
+project.addTask('deploy:export', {
+  exec: 'next export',
+});
+project.addTask('deploy:gh', {
+  exec: 'gh-pages -d out',
 });
 
 project.synth();

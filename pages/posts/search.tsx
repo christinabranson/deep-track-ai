@@ -5,6 +5,7 @@ import { getSortedPostsData, getAllTags } from '../../lib/posts';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import PostListingSingle from '@/components/PostListingSingle';
+
 export default function SearchResults({ allPostsData, allTags }) {
   const router = useRouter();
   const { query } = router.query;

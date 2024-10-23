@@ -6,6 +6,9 @@
     "clobber": "npx projen clobber",
     "compile": "npx projen compile",
     "default": "npx projen default",
+    "deploy:build": "npx projen deploy:build",
+    "deploy:export": "npx projen deploy:export",
+    "deploy:gh": "npx projen deploy:gh",
     "dev": "npx projen dev",
     "eject": "npx projen eject",
     "eslint": "npx projen eslint",
@@ -31,6 +34,7 @@
     "eslint": "^8",
     "eslint-import-resolver-typescript": "^3.6.3",
     "eslint-plugin-import": "^2.31.0",
+    "gh-pages": "^6.2.0",
     "projen": "^0.88.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3"
@@ -44,7 +48,6 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-markdown": "^9.0.1",
-    "react-spotify-embed": "^2.0.4",
     "remark": "^15.0.1",
     "remark-html": "^16.0.1",
     "tailwindcss": "^3.4.14"

@@ -42,6 +42,10 @@
       "type": "build"
     },
     {
+      "name": "gh-pages",
+      "type": "build"
+    },
+    {
       "name": "projen",
       "type": "build"
     },
@@ -83,10 +87,6 @@
     },
     {
       "name": "react-markdown",
-      "type": "runtime"
-    },
-    {
-      "name": "react-spotify-embed",
       "type": "runtime"
     },
     {
