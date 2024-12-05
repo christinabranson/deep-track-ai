@@ -2,28 +2,36 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { getSortedPostsData, getAllTags } from '../../lib/posts';
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
-import PostListingSingle from '@/components/PostListingSingle';
+import Footer from '@/src/components/Footer';
+import Header from '@/src/components/Header';
+import PostListingSingle from '@/src/components/PostListingSingle';
 
-export default function SearchResults({ allPostsData, allTags }) {
+export default function SearchResults({
+  allPostsData,
+  allTags,
+}: {
+  allPostsData: any;
+  allTags: any;
+}) {
   const router = useRouter();
-  const { query } = router.query;
+  const { query }= router.query;
+  const queryString = typeof query === 'string' ? query : ''; // Default to an empty string if not a single string
+
   const [filteredPosts, setFilteredPosts] = useState([]);
 
   // Search posts by title, tags, and body
-  function searchPosts(allPostsData, query) {
-    return allPostsData.filter((post) => {
+  function searchPosts() {
+    return allPostsData.filter((post: any) => {
       const content =
         `${post.title} ${post.tags?.join(' ')} ${post.content}`.toLowerCase();
-      return content.includes(query.toLowerCase());
+      return queryString ? content.includes(queryString.toLowerCase()) : false;
     });
   }
 
   useEffect(() => {
     if (query) {
       // Use the client-side search function to filter posts based on the query
-      const searchResults = searchPosts(allPostsData, query);
+      const searchResults = searchPosts();
       setFilteredPosts(searchResults);
     }
   }, [query, allPostsData]);

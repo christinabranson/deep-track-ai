@@ -1,15 +1,15 @@
-import Link from "next/link";
-import { formatDate } from "../lib/util";
+import Link from 'next/link';
+import { formatDate } from '../lib/util';
 
-export default function PostListingSingle({ post }) {
+export default function PostListingSingle({ post }: { post: any }) {
   const { id, title, tagline, date, image, tags } = post;
 
-  const getImageUrl = (image) => {
+  const getImageUrl = () => {
     if (image !== undefined) {
       return image;
     }
 
-    return "/img/music.jpg";
+    return 'img/music.jpg';
   };
   return (
     <Link
@@ -22,7 +22,7 @@ export default function PostListingSingle({ post }) {
         <div className="shrink-0 relative  overflow-hidden w-full sm:w-56 h-full min-h-64">
           <img
             className="group-hover:scale-105 group-focus:scale-105 transition-transform duration-500 ease-in-out size-full absolute top-0 start-0 object-cover "
-            src={getImageUrl(image)}
+            src={getImageUrl()}
             alt={title}
           />
         </div>
@@ -54,7 +54,7 @@ export default function PostListingSingle({ post }) {
             </svg>
           </p>
           <div className="flex items-center gap-x-5 py-3">
-            {tags.map((tag) => (
+            {tags.map((tag: any) => (
               <span className="inline-flex items-center gap-1.5 py-1 px-3 sm:py-2 sm:px-4 rounded-full text-xs sm:text-sm bg-gray-100 text-gray-800 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800">
                 {tag}
               </span>

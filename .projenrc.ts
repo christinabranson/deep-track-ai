@@ -16,10 +16,13 @@ const project = new web.NextJsTypeScriptProject({
     'react-markdown',
   ] /* Runtime dependencies of this module. */,
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  devDeps: ['gh-pages'],             /* Build dependencies for this module. */
+  devDeps: ['gh-pages'], /* Build dependencies for this module. */
   packageName: 'deep-track-ai' /* The "name" in package.json. */,
   tailwind: false /* Setup Tailwind CSS as a PostCSS plugin. */,
   eslint: true,
+  eslintOptions: {
+    dirs: ['.', 'src'],
+  },
   tsconfig: {
     compilerOptions: {
       jsx: TypeScriptJsxMode.REACT_JSX,
@@ -30,7 +33,7 @@ const project = new web.NextJsTypeScriptProject({
       inlineSourceMap: true,
       inlineSources: true,
       lib: ['es2018', 'DOM', 'DOM.Iterable'],
-      module: 'CommonJS',
+      module: 'preserve',
       noEmitOnError: false,
       noFallthroughCasesInSwitch: true,
       noImplicitAny: true,
@@ -43,9 +46,9 @@ const project = new web.NextJsTypeScriptProject({
       strictNullChecks: true,
       strictPropertyInitialization: true,
       stripInternal: true,
-    target: 'ES2018',
-      rootDir: ".",
-      outDir: "./out",
+      target: 'ES2018',
+      rootDir: './src',
+      outDir: './out',
     },
   },
 });
@@ -64,5 +67,9 @@ project.addTask('deploy:export', {
 project.addTask('deploy:gh', {
   exec: 'gh-pages -d out',
 });
+
+project.gitignore.addPatterns(
+  "out/",
+);
 
 project.synth();

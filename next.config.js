@@ -5,5 +5,10 @@ module.exports = {
     images: {
       unoptimized: true, // Disable Next.js's built-in image optimization for static exports
     },
+  // Specify the base path for deployment
+  basePath: '/deep-track-ai',
+
+  // Optional: assetPrefix for serving static files from the subdirectory
+  assetPrefix: '/deep-track-ai/',
   };
   

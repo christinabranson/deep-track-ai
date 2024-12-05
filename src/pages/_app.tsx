@@ -1,6 +1,6 @@
 import { Rubik } from 'next/font/google';
 
-import '../styles/global.css';
+import '@/src/styles/global.css';
 
 const rubic_font = Rubik({
   weight: ['400', '700'],
@@ -9,7 +9,13 @@ const rubic_font = Rubik({
   display: 'swap',
 });
 
-export default function App({ Component, pageProps }) {
+export default function App({
+  Component,
+  pageProps,
+}: {
+  Component: any;
+  pageProps: any;
+}) {
   return (
     <main className={rubic_font.className}>
       <Component {...pageProps} />

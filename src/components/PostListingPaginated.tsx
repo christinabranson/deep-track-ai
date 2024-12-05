@@ -1,27 +1,24 @@
-import { useState } from "react";
-import PostListingSingle from "./PostListingSingle";
+import { useState } from 'react';
+import PostListingSingle from './PostListingSingle';
 
-const PostListingPaginated = ({ posts, postsPerPage = 10 }) => {
+const PostListingPaginated = ({
+  posts,
+  postsPerPage = 10,
+}: {
+  posts: any;
+  postsPerPage: number;
+}) => {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPosts = posts.length;
   const totalPages = Math.ceil(totalPosts / postsPerPage);
-  const maxPageButtons = 5; // Limit the number of page buttons displayed
 
   // Calculate the current posts to display based on the current page
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
 
-  // Calculate which page buttons to display (limit to maxPageButtons)
-  const startPage = Math.max(1, currentPage - Math.floor(maxPageButtons / 2));
-  const endPage = Math.min(totalPages, startPage + maxPageButtons - 1);
-  const pageNumbers = Array.from(
-    { length: endPage - startPage + 1 },
-    (_, i) => startPage + i,
-  );
-
   // Handle page navigation
-  const handlePageChange = (pageNumber) => {
+  const handlePageChange = (pageNumber: number) => {
     if (pageNumber > 0 && pageNumber <= totalPages) {
       setCurrentPage(pageNumber);
     }
@@ -31,7 +28,7 @@ const PostListingPaginated = ({ posts, postsPerPage = 10 }) => {
     <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 ">
       {/* Post Listing */}
 
-      {currentPosts.map((post) => (
+      {currentPosts.map((post: any) => (
         <PostListingSingle post={post} />
       ))}
 

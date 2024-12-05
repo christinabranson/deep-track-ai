@@ -1,23 +1,23 @@
-const SpotifyEmbed = (link) => {
-  const getLink = (link) => {
+const SpotifyEmbed = (link: any) => {
+  const getLink = () => {
     // Check if input is an object with a 'link' key
-    if (typeof link === "object" && link !== null && "link" in link) {
+    if (typeof link === 'object' && link !== null && 'link' in link) {
       return link.link;
     }
     // Otherwise, assume it's already a string
     return link;
   };
 
-  const linkUrl = getLink(link);
+  const linkUrl = getLink();
 
-  if (linkUrl === undefined || linkUrl === "") {
+  if (linkUrl === undefined || linkUrl === '') {
     return null;
   }
 
   return (
     <>
       <iframe
-        style={{ borderRadius: "12px" }}
+        style={{ borderRadius: '12px' }}
         src={linkUrl}
         width="100%"
         height="352"

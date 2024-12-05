@@ -1,17 +1,23 @@
 import { getSortedPostsData, getAllTags } from '../lib/posts';
 
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
-import PostListingPaginated from '@/components/PostListingPaginated';
+import Footer from '@/src/components/Footer';
+import Header from '@/src/components/Header';
+import PostListingPaginated from '@/src/components/PostListingPaginated';
 
-export default function Home({ allPostsData, allTags }) {
+export default function Home({
+  allPostsData,
+  allTags,
+}: {
+  allPostsData: any;
+  allTags: any;
+}) {
   return (
     <div className="max-w-[64rem] mx-auto px-4 sm:px-6 lg:px-8">
       <Header />
 
       <div className="w-full py-3">
         <div className="grid lg:grid-cols-1 lg:gap-y-16 gap-8">
-          <PostListingPaginated posts={allPostsData} />
+          <PostListingPaginated posts={allPostsData} postsPerPage={10} />
         </div>
       </div>
 

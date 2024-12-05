@@ -1,17 +1,16 @@
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { useState } from "react";
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 
-export default function FooterMinimal({ allTags }) {
-  const [searchQuery, setSearchQuery] = useState("");
+export default function FooterMinimal({ allTags }: { allTags: any }) {
+  const [searchQuery, setSearchQuery] = useState('');
   const router = useRouter();
 
   // Handle form submission to the search page
-  const handleSearchSubmit = (e) => {
+  const handleSearchSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (searchQuery.trim()) {
       // Redirect to the search results page with the query as a query parameter
-      router.push(`/posts/search?query=${encodeURIComponent(searchQuery)}`);
+      await router.push(`/posts/search?query=${encodeURIComponent(searchQuery)}`);
     }
   };
 
@@ -55,9 +54,9 @@ export default function FooterMinimal({ allTags }) {
               <div
                 data-lastpass-icon-root=""
                 style={{
-                  position: "relative",
-                  height: "0px !important",
-                  width: "0px !important",
+                  position: 'relative',
+                  height: '0px !important',
+                  width: '0px !important',
                 }}
               ></div>
             </div>
@@ -92,10 +91,10 @@ export default function FooterMinimal({ allTags }) {
         </h2>
 
         <div className="flex items-center gap-x-5">
-          {allTags.map((tag) => (
+          {allTags.map((tag: any) => (
             <a
               className="inline-flex items-center gap-1.5 py-1 px-3 sm:py-2 sm:px-4 rounded-full text-xs sm:text-sm bg-gray-100 text-gray-800 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
-              href={`/tags/` + tag}
+              href={'/tags/' + tag}
             >
               {tag}
             </a>

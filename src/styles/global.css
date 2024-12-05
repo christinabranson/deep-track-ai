@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply dark:bg-gray-800 bg-white;
+  }
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+a {
+  color: #447f7f;
+}
+
+.text-blue-custom {
+  color: #447f7f;
+}
+
+footer {
+  bottom: 0;
+}
+
+.custom-italics {
+  font-style: italic;
+}

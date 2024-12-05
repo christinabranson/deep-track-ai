@@ -3,12 +3,18 @@ import { remark } from 'remark';
 import html from 'remark-html';
 import { getAllPostIds, getAllTags, getPostData } from '../../lib/posts';
 import { formatDate } from '../../lib/util';
-import CustomMarkdown from '@/components/CustomMarkdown';
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
-import SpotifyEmbed from '@/components/SpotifyEmbed';
+import CustomMarkdown from '@/src/components/CustomMarkdown';
+import Footer from '@/src/components/Footer';
+import Header from '@/src/components/Header';
+import SpotifyEmbed from '@/src/components/SpotifyEmbed';
 
-export default function Post({ postData, allTags }) {
+export default function Post({
+  postData,
+  allTags,
+}: {
+  postData: any;
+  allTags: any;
+}) {
   return (
     <div className="max-w-[64rem] mx-auto px-4 sm:px-6 lg:px-8">
       <Header />
@@ -59,7 +65,7 @@ export default function Post({ postData, allTags }) {
               <p className="text-xs sm:text-sm text-gray-800 dark:text-neutral-200">
                 {formatDate(postData.date)}
               </p>
-              {postData.tags.map((tag) => (
+              {postData.tags.map((tag: any) => (
                 <a
                   className="inline-flex items-center gap-1.5 py-1 px-3 sm:py-2 sm:px-4 rounded-full text-xs sm:text-sm bg-gray-100 text-gray-800 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
                   href={'/tags/' + tag}
@@ -106,7 +112,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: { params: any }) {
   const postData = getPostData(params.id);
   const allTags = getAllTags();
 
