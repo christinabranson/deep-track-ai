@@ -20,14 +20,14 @@ export default function App({
   return (
     <main className={rubic_font.className}>
       <DefaultSeo
-          openGraph={{
-            type: 'website',
-            locale: 'en_US',
-            url: 'https://christinabranson.github.io/deep-track-ai/',
-            siteName: 'Deep Track AI',
-            description: 'Discovering new music with generative AI',
-          }}
-        />
+        openGraph={{
+          type: 'website',
+          locale: 'en_US',
+          url: 'https://christinabranson.github.io/deep-track-ai/',
+          siteName: 'Deep Track AI',
+          description: 'Discovering new music with generative AI',
+        }}
+      />
       <Component {...pageProps} />
     </main>
   );

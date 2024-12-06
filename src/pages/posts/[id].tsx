@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { NextSeo } from 'next-seo';
 import { remark } from 'remark';
 import html from 'remark-html';
 import { getAllPostIds, getAllTags, getPostData } from '../../lib/posts';
@@ -7,7 +8,6 @@ import CustomMarkdown from '@/src/components/CustomMarkdown';
 import Footer from '@/src/components/Footer';
 import Header from '@/src/components/Header';
 import SpotifyEmbed from '@/src/components/SpotifyEmbed';
-import { NextSeo } from 'next-seo';
 export default function Post({
   postData,
   allTags,

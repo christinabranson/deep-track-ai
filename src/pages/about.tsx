@@ -1,10 +1,10 @@
 import Link from 'next/link';
+import { NextSeo } from 'next-seo';
 import { getAllTags } from '../lib/posts';
 
 import CustomMarkdown from '@/src/components/CustomMarkdown';
 import Footer from '@/src/components/Footer';
 import Header from '@/src/components/Header';
-import { NextSeo } from 'next-seo';
 export default function AllTagsPage({ allTags }: { allTags: any }) {
   const markdownContent = `
 
@@ -34,8 +34,8 @@ I'm using ChatGPT as my Generative AI tool, though I'm open to exploring differe
     <div className="max-w-[64rem] mx-auto px-4 sm:px-6 lg:px-8">
       <Header />
       <NextSeo
-        title={`Deep Track AI: About}`}
-        description={`Why I started this blog & the tech behind it`}
+        title={'Deep Track AI: About}'}
+        description={'Why I started this blog & the tech behind it'}
       />
       {/* Breadcrumbs */}
       <ol className="flex items-center whitespace-nowrap p-2 border-y border-gray-200 dark:border-neutral-700">

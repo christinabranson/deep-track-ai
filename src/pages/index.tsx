@@ -1,9 +1,9 @@
+import { NextSeo } from 'next-seo';
 import { getSortedPostsData, getAllTags } from '../lib/posts';
 
 import Footer from '@/src/components/Footer';
 import Header from '@/src/components/Header';
 import PostListingPaginated from '@/src/components/PostListingPaginated';
-import { NextSeo } from 'next-seo';
 export default function Home({
   allPostsData,
   allTags,
@@ -15,7 +15,7 @@ export default function Home({
     <div className="max-w-[64rem] mx-auto px-4 sm:px-6 lg:px-8">
       <Header />
       <NextSeo
-        title={`Deep Track AI`}
+        title={'Deep Track AI'}
       />
 
       <div className="w-full py-3">

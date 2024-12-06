@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { formatDate } from '../lib/util';
 
 export default function PostListingSingle({ post }: { post: any }) {
-  const { id, title, tagline, date, image, tags } = post;
+  const { id, title, tagline, date, image } = post;
 
   const getImageUrl = () => {
     if (image !== undefined) {

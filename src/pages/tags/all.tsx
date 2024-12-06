@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { getAllTagsWithCounts } from '../../lib/posts';
 import { NextSeo } from 'next-seo';
+import { getAllTagsWithCounts } from '../../lib/posts';
 import Footer from '@/src/components/Footer';
 import Header from '@/src/components/Header';
 
@@ -9,7 +9,7 @@ export default function AllTagsPage({ allTags }: { allTags: any }) {
     <div className="max-w-[64rem] mx-auto px-4 sm:px-6 lg:px-8">
       <Header />
       <NextSeo
-        title={`Deep Track AI: Tags`}
+        title={'Deep Track AI: Tags'}
       />
       {/* Breadcrumbs */}
       <ol className="flex items-center whitespace-nowrap p-2 border-y border-gray-200 dark:border-neutral-700">

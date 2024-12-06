@@ -70,7 +70,7 @@ project.addTask('deploy:gh', {
 });
 
 project.gitignore.addPatterns(
-  "out/",
+  'out/',
 );
 
 project.synth();

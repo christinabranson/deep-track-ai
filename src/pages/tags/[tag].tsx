@@ -1,9 +1,9 @@
 import Link from 'next/link';
+import { NextSeo } from 'next-seo';
 import { getAllTags, getPostsByTag } from '../../lib/posts';
 import Footer from '@/src/components/Footer';
 import Header from '@/src/components/Header';
 import PostListingPaginated from '@/src/components/PostListingPaginated';
-import { NextSeo } from 'next-seo';
 export default function Tag({
   tag,
   posts,
