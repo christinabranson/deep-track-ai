@@ -70,6 +70,10 @@
       "type": "runtime"
     },
     {
+      "name": "next-seo",
+      "type": "runtime"
+    },
+    {
       "name": "postcss",
       "type": "runtime"
     },

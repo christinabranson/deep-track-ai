@@ -7,7 +7,7 @@ import CustomMarkdown from '@/src/components/CustomMarkdown';
 import Footer from '@/src/components/Footer';
 import Header from '@/src/components/Header';
 import SpotifyEmbed from '@/src/components/SpotifyEmbed';
-
+import { NextSeo } from 'next-seo';
 export default function Post({
   postData,
   allTags,
@@ -18,6 +18,10 @@ export default function Post({
   return (
     <div className="max-w-[64rem] mx-auto px-4 sm:px-6 lg:px-8">
       <Header />
+      <NextSeo
+        title={`Deep Track AI: ${postData.title}`}
+        description={postData.tagline}
+      />
 
       {/* Breadcrumbs */}
       <ol className="flex items-center whitespace-nowrap p-2 border-y border-gray-200 dark:border-neutral-700">
@@ -61,14 +65,14 @@ export default function Post({
               {postData.title}
             </h2>
 
-            <div className="flex items-center gap-x-5 py-3">
+            <div className="flex flex-wrap items-center gap-2 py-4">
               <p className="text-xs sm:text-sm text-gray-800 dark:text-neutral-200">
                 {formatDate(postData.date)}
               </p>
               {postData.tags.map((tag: any) => (
                 <a
-                  className="inline-flex items-center gap-1.5 py-1 px-3 sm:py-2 sm:px-4 rounded-full text-xs sm:text-sm bg-gray-100 text-gray-800 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
-                  href={'/tags/' + tag}
+                  className="inline-flex items-center p-2 rounded-full text-xs sm:text-sm bg-gray-100 text-gray-800 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                  href={'/deep-track-ai/tags/' + tag}
                 >
                   {tag}
                 </a>

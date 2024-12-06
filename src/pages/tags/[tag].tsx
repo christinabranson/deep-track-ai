@@ -3,7 +3,7 @@ import { getAllTags, getPostsByTag } from '../../lib/posts';
 import Footer from '@/src/components/Footer';
 import Header from '@/src/components/Header';
 import PostListingPaginated from '@/src/components/PostListingPaginated';
-
+import { NextSeo } from 'next-seo';
 export default function Tag({
   tag,
   posts,
@@ -16,7 +16,10 @@ export default function Tag({
   return (
     <div className="max-w-[64rem] mx-auto px-4 sm:px-6 lg:px-8">
       <Header />
-
+      <NextSeo
+        title={`Deep Track AI: ${tag}`}
+        description={`Blog posts for tag: ${tag}`}
+      />
       {/* Breadcrumbs */}
       <ol className="flex items-center whitespace-nowrap p-2 border-y border-gray-200 dark:border-neutral-700">
         <li className="inline-flex items-center">

@@ -3,7 +3,7 @@ import { getSortedPostsData, getAllTags } from '../lib/posts';
 import Footer from '@/src/components/Footer';
 import Header from '@/src/components/Header';
 import PostListingPaginated from '@/src/components/PostListingPaginated';
-
+import { NextSeo } from 'next-seo';
 export default function Home({
   allPostsData,
   allTags,
@@ -14,6 +14,9 @@ export default function Home({
   return (
     <div className="max-w-[64rem] mx-auto px-4 sm:px-6 lg:px-8">
       <Header />
+      <NextSeo
+        title={`Deep Track AI`}
+      />
 
       <div className="w-full py-3">
         <div className="grid lg:grid-cols-1 lg:gap-y-16 gap-8">

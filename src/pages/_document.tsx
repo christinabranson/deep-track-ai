@@ -4,7 +4,9 @@ export default function Document() {
   return (
     // add "dark" to classname for dark mode
     <Html lang="en" className="">
-      <Head />
+      <Head>
+        <title>Deep Track AI</title>
+      </Head>
       <body className="dark:bg-gray-800">
         <Main />
         <NextScript />

@@ -4,26 +4,39 @@ import { getAllTags } from '../lib/posts';
 import CustomMarkdown from '@/src/components/CustomMarkdown';
 import Footer from '@/src/components/Footer';
 import Header from '@/src/components/Header';
-
+import { NextSeo } from 'next-seo';
 export default function AllTagsPage({ allTags }: { allTags: any }) {
   const markdownContent = `
 
 -----
 
-## Hi, I'm Christina!
+## 👋 Hi, I'm Christina!
 
-...
+---
 
-### Why am I creating this blog?
+### Why this blog?
 
-...
+I started this blog to merge two of my passions: music discovery and cutting-edge technology. Music has always been a powerful force in my life—a way to connect, escape, and explore. At the same time, my fascination with artificial intelligence has opened my eyes to its potential to uncover hidden gems and patterns that might go unnoticed.
+
+With Deep Track AI, my goal is to harness the power of generative AI to surface new and underappreciated music, create connections between artists and genres, and introduce you to tracks that resonate deeply. Whether it’s uncovering an indie artist from halfway across the world or drawing parallels between your favorite band and a lesser-known pioneer, I want this blog to inspire a new way of exploring music.
+
+---
+
+### About the tech
+
+This blog uses Next.js & is deployed to Github Pages!
+
+I'm using ChatGPT as my Generative AI tool, though I'm open to exploring different tooling!
 
 
 `;
   return (
     <div className="max-w-[64rem] mx-auto px-4 sm:px-6 lg:px-8">
       <Header />
-
+      <NextSeo
+        title={`Deep Track AI: About}`}
+        description={`Why I started this blog & the tech behind it`}
+      />
       {/* Breadcrumbs */}
       <ol className="flex items-center whitespace-nowrap p-2 border-y border-gray-200 dark:border-neutral-700">
         <li className="inline-flex items-center">

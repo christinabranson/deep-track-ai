@@ -10,7 +10,7 @@ export default function Header() {
               <div className="flex justify-center -space-x-3 ">
                 <img
                   className="border inline-block size-[128px] rounded-full ring-2 ring-white dark:ring-neutral-900"
-                  src="img/logo1.png"
+                  src="/deep-track-ai/img/logo1.png"
                   alt="Avatar"
                 />
               </div>

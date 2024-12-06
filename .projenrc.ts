@@ -14,6 +14,7 @@ const project = new web.NextJsTypeScriptProject({
     'postcss',
     'autoprefixer',
     'react-markdown',
+    'next-seo',
   ] /* Runtime dependencies of this module. */,
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
   devDeps: ['gh-pages'], /* Build dependencies for this module. */
