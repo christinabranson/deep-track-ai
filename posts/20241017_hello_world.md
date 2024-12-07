@@ -3,7 +3,7 @@ title: "Hello, World!"
 date: "2024-10-17"
 tagline: "It's 2024 and clearly we need another blog about GenAI."
 image: /deep-track-ai/img/posts/tape.jpg
-tags: ["meta" , "first post"]
+tags: ["meta"]
 # playlist: "https://open.spotify.com/embed/playlist/7ouvLHlg7TRYns67NueSzK?utm_source=generator"
 ---
 

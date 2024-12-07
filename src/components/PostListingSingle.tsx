@@ -19,7 +19,7 @@ export default function PostListingSingle({ post }: { post: any }) {
       href={`/posts/${id}`}
     >
       <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5 h-full min-h-64">
-        <div className="shrink-0 relative  overflow-hidden w-full sm:w-56 h-full min-h-64">
+        <div className="shrink-0 relative overflow-hidden w-full sm:w-96 h-full min-h-64">
           <img
             className="group-hover:scale-105 group-focus:scale-105 transition-transform duration-500 ease-in-out size-full absolute top-0 start-0 object-cover "
             src={getImageUrl()}
