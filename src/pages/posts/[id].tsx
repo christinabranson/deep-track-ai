@@ -79,10 +79,15 @@ export default function Post({
               ))}
             </div>
 
+            <SpotifyEmbed link={postData.playlist} />
+
+            <CustomMarkdown content={postData.content || ''} />
+
             {postData.image && (
+              <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-10">
               <figure>
                 <img
-                  className="w-full object-cover rounded-xl"
+                  className="mx-auto object-cover rounded-xl"
                   src={postData.image}
                   alt={postData.image_caption || postData.titler}
                 />
@@ -92,11 +97,9 @@ export default function Post({
                   </figcaption>
                 )}
               </figure>
+              </div>
             )}
 
-            <CustomMarkdown content={postData.content || ''} />
-
-            <SpotifyEmbed link={postData.playlist} />
           </article>
         </div>
       </div>
