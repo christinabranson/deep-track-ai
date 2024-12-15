@@ -85,18 +85,18 @@ export default function Post({
 
             {postData.image && (
               <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-10">
-              <figure>
-                <img
-                  className="mx-auto object-cover rounded-xl"
-                  src={postData.image}
-                  alt={postData.image_caption || postData.titler}
-                />
-                {postData.image_caption && (
-                  <figcaption className="mt-3 text-sm text-center text-gray-500 dark:text-neutral-500">
-                    {postData.image_caption}
-                  </figcaption>
-                )}
-              </figure>
+                <figure>
+                  <img
+                    className="mx-auto object-cover rounded-xl"
+                    src={postData.image}
+                    alt={postData.image_caption || postData.titler}
+                  />
+                  {postData.image_caption && (
+                    <figcaption className="mt-3 text-sm text-center text-gray-500 dark:text-neutral-500">
+                      {postData.image_caption}
+                    </figcaption>
+                  )}
+                </figure>
               </div>
             )}
 
