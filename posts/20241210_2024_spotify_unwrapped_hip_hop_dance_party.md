@@ -70,8 +70,6 @@ The aesthetic would include:
 13. **Death Grips** – Chaotic and energetic, bringing the raw edge of skate culture.
 14. **Jaden Smith** – Skateboarding influence with futuristic hip hop vibes. 
 
-Would you like me to elaborate on any of these?
-
 ---
 
 ### Credits
